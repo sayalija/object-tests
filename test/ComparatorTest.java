@@ -15,14 +15,13 @@ class AddPeople {
 }
 
 public class ComparatorTest {
-    Person Swamiji = new Person("Swamiji", 3);
+    Person Swamiji = new Person("Swam   iji", 3);
     Person SwamijiClone = new Person("Swamiji", 3);
 
     Person Kunal = new Person("Kunal", 50);
     Person KunalClone = new Person("Kunal", 50);
 
     Person Srijayanth = new Person("Srijayanth", 35);
-    Person SrijayanthClone = new Person("Srijayanth", 35);
 
     List people = AddPeople.addPeopleToList(Srijayanth, Kunal, Swamiji);
 
