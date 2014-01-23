@@ -45,6 +45,4 @@ public class StringTest {
         String MyCountry = new String("India");
         Assert.assertEquals(true, India.equals(MyCountry));
     }
-
-
 }

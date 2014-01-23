@@ -15,7 +15,7 @@ class AddPeople {
 }
 
 public class ComparatorTest {
-    Person Swamiji = new Person("Swam   iji", 3);
+    Person Swamiji = new Person("Swamiji", 3);
     Person SwamijiClone = new Person("Swamiji", 3);
 
     Person Kunal = new Person("Kunal", 50);

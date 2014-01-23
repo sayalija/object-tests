@@ -1,0 +1,47 @@
+<project name = "object-tests" default = "runTests" >
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="createFolderStructure">
+        <mkdir dir="build"/>
+        <mkdir dir="build/classes"/>
+        <mkdir dir="build/classes/src"/>
+        <mkdir dir="build/classes/test"/>
+        <mkdir dir="build/dist/lib"/>
+    </target>
+
+    <target name="compile" depends="createFolderStructure">
+        <javac srcdir="src" destdir="build/classes/src" includeAntRuntime="false"/>
+    </target>
+
+    <target name="createJar" depends="compile">
+        <jar destfile="build/dist/lib/evaluator.jar" basedir="build/classes/src"/>
+        <copy file="junit-4.10.jar" tofile="build/dist/lib/junit-4.10.jar"/>
+    </target>
+
+    <target name="compileTests" depends="compile,createJar">
+        <javac srcdir="test" destdir="build/classes/test"
+               classpath="build/dist/lib/junit-4.10.jar;build/classes/src" includeAntRuntime="false"/>
+    </target>
+
+    <target name="runTests" depends="compileTests">
+        <junit haltonfailure="yes">
+            <classpath>
+                <pathelement location="build/classes/src" />
+                <pathelement location="build/classes/test" />
+                <pathelement location="build/dist/lib/junit-4.10.jar"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="build/classes/test">
+                    <include name="**/*Test*" />
+                    <exclude name="**/*$*.class"/>
+                </fileset>
+            </batchtest>
+            <formatter type = "brief" usefile = "false"/>
+        </junit>
+
+    </target>
+
+</project>
