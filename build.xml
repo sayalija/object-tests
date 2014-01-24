@@ -4,7 +4,7 @@
         <delete dir="build"/>
     </target>
 
-    
+
     <target name="createFolderStructure">
         <mkdir dir="build"/>
         <mkdir dir="build/classes"/>
